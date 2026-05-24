@@ -4,6 +4,8 @@ This module gives SDR++ access to the **complete rtl_433 decoder set (~320
 protocols)** by linking the real [rtl_433](https://github.com/merbanan/rtl_433)
 library and feeding it IQ from an SDR++ VFO — no decoders are re-implemented.
 
+![rtl_433_bridge](rtl_433_bridge.png)
+
 ```
 SDR++ VFO (complex float IQ, 250 kHz)
    -> convert to CU8  (rtl_433's native sample format)
