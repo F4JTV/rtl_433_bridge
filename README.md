@@ -17,15 +17,6 @@ Tested end-to-end: a synthetic Nexus CU8 frame fed through the wrapper is
 decoded by the genuine rtl_433 `Nexus-TH` decoder with exact field values, and
 `register_all_protocols` loads 283 (default) / 314 (incl. disabled) protocols.
 
-## Why this vs the from-scratch `rtl_433_decoder` module?
-
-| | `rtl_433_decoder` (port) | `rtl_433_bridge` (this) |
-|---|---|---|
-| Protocols | ~11 hand-ported | ~320 (the real thing) |
-| Dependency | none | links librtl_433 |
-| Maintenance | port each decoder | track rtl_433 releases |
-| Best for | minimal/standalone builds | full coverage |
-
 ## Build (Ubuntu 24.04)
 
 ### 1. Build the rtl_433 static library (with -fPIC, no SDR backends)
@@ -83,7 +74,7 @@ Point `RTL_433_ROOT` at the **absolute path** of the rtl_433 tree whose
 ```bash
 mkdir -p build && cd build
 rm -f CMakeCache.txt                 # clean cache if reconfiguring
-cmake .. -DOPT_BUILD_RTL_433_BRIDGE=ON -DRTL_433_ROOT=/home/$USER/Programmes/rtl_433
+cmake .. -DOPT_BUILD_RTL_433_BRIDGE=ON -DRTL_433_ROOT=/path/to/rtl_433
 make rtl_433_bridge -j$(nproc)       # or: make -j$(nproc) to build everything
 sudo make install
 ```
