@@ -28,7 +28,7 @@ gets linked into a shared object (the SDR++ module `.so`). The SDR hardware
 backends are disabled — the bridge feeds samples itself.
 
 ```bash
-git clone https://github.com/merbanan/rtl_433.git
+git clone https://github.com/F4JTV/rtl_433.git
 cd rtl_433 && mkdir -p build && cd build
 cmake -DENABLE_RTLSDR=OFF -DENABLE_SOAPYSDR=OFF -DENABLE_OPENSSL=OFF \
       -DBUILD_TESTING=OFF \
