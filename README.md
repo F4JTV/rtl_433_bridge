@@ -49,7 +49,7 @@ ls -la src/libr_433.a        # must exist
 ```bash
 cd SDRPlusPlus/decoder_modules/
 git clone https://github.com/F4JTV/rtl_433_bridge.git
-cd ..
+
 git apply root_CMakeLists.patch      # or edit CMakeLists.txt by hand (see patch)
 ```
 
