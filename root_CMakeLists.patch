@@ -1,0 +1,28 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 5e3163a..55eb134 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -53,6 +53,8 @@ option(OPT_BUILD_KG_SSTV_DECODER "Build the KG SSTV (KG-STV) decoder module (no
+ option(OPT_BUILD_M17_DECODER "Build the M17 decoder module (Dependencies: codec2)" OFF)
+ option(OPT_BUILD_METEOR_DEMODULATOR "Build the meteor demodulator module (no dependencies required)" ON)
+ option(OPT_BUILD_PAGER_DECODER "Build the pager decoder module (no dependencies required)" ON)
++option(OPT_BUILD_RTL_433_DECODER "Build the rtl_433 ISM device decoder module (no dependencies required)" ON)
++option(OPT_BUILD_RTL_433_BRIDGE "Build the rtl_433 bridge module (links librtl_433, ~320 protocols; needs RTL_433_ROOT)" OFF)
+ option(OPT_BUILD_RADIO "Main audio modulation decoder (AM, FM, SSB, etc...)" ON)
+ option(OPT_BUILD_RYFI_DECODER "RyFi data link decoder" OFF)
+ option(OPT_BUILD_VOR_RECEIVER "VOR beacon receiver" OFF)
+@@ -292,6 +294,14 @@ if (OPT_BUILD_PAGER_DECODER)
+ add_subdirectory("decoder_modules/pager_decoder")
+ endif (OPT_BUILD_PAGER_DECODER)
+ 
++if (OPT_BUILD_RTL_433_DECODER)
++add_subdirectory("decoder_modules/rtl_433_decoder")
++endif (OPT_BUILD_RTL_433_DECODER)
++
++if (OPT_BUILD_RTL_433_BRIDGE)
++add_subdirectory("decoder_modules/rtl_433_bridge")
++endif (OPT_BUILD_RTL_433_BRIDGE)
++
+ if (OPT_BUILD_RADIO)
+ add_subdirectory("decoder_modules/radio")
+ endif (OPT_BUILD_RADIO)
